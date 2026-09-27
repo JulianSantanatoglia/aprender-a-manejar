@@ -1,0 +1,160 @@
+.tacho {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.tacho svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tacho .track {
+  fill: none;
+  stroke: #0c1016;
+  stroke-width: 26;
+}
+
+.tacho .zone {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: butt;
+}
+
+.zone-idle {
+  stroke: #64748b;
+}
+.zone-useful {
+  stroke: var(--ok);
+}
+.zone-high {
+  stroke: var(--warn);
+}
+.zone-red {
+  stroke: var(--danger);
+  stroke-width: 9 !important;
+}
+
+.tacho .tick {
+  stroke: #56627a;
+  stroke-width: 1.5;
+}
+
+.tacho .tick-major {
+  stroke: #c9d2e0;
+  stroke-width: 3;
+}
+
+.tacho .tick[data-red] {
+  stroke: var(--danger);
+}
+
+.tacho .tick-label {
+  fill: #c9d2e0;
+  font-size: 17px;
+  font-weight: 650;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.tacho .tick-label[data-red] {
+  fill: var(--danger);
+}
+
+.tacho .unit {
+  fill: var(--dim);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-anchor: middle;
+}
+
+.tacho .needle {
+  transform-origin: 160px 160px;
+  transition: transform 0.05s linear;
+}
+
+.tacho .needle line {
+  stroke: #ff5a4f;
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(255, 90, 79, 0.55));
+}
+
+.tacho .hub {
+  fill: #1c2430;
+  stroke: #3a475a;
+  stroke-width: 2;
+}
+
+.tacho-readout {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 64%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.tacho-rpm {
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tacho-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.tacho[data-status='high'] .tacho-rpm {
+  color: var(--warn);
+}
+
+.tacho[data-status='redline'] .tacho-rpm {
+  color: var(--danger);
+}
+
+.tacho[data-status='off'] .tacho-rpm {
+  color: var(--dim);
+}
+
+.tacho-lamps {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: -6px;
+}
+
+.lamp {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--dim);
+}
+
+.lamp[data-on] {
+  color: var(--warn);
+  border-color: rgba(251, 191, 36, 0.5);
+  background: var(--warn-soft);
+}
+
+.lamp-red[data-on] {
+  color: #fff;
+  border-color: var(--danger);
+  background: var(--danger);
+  animation: blink 0.35s steps(2) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.45;
+  }
+}

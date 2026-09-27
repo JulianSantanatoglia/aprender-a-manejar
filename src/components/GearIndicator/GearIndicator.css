@@ -1,0 +1,42 @@
+.gear-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.gear-caption {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.gear-value {
+  font-size: 6.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+  animation: gear-pop 0.22s ease-out;
+}
+
+.gear-indicator[data-kind='neutral'] .gear-value {
+  color: var(--ok);
+}
+
+.gear-indicator[data-kind='reverse'] .gear-value {
+  color: var(--warn);
+}
+
+.gear-suggestion {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+@keyframes gear-pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+}

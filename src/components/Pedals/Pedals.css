@@ -1,0 +1,142 @@
+.pedals {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pedal-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.pedal-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pedal-value {
+  margin-left: auto;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.pedal-bar {
+  height: 22px;
+  border-radius: 6px;
+}
+
+.pedal-bar .bar-fill {
+  border-radius: 5px;
+}
+
+.pedal[data-kind='clutch'] .bar-fill {
+  background: linear-gradient(90deg, #2b8fd0, var(--accent));
+}
+
+.pedal[data-kind='clutch'] .bar-fill[data-zone] {
+  background: linear-gradient(90deg, #d8661b, var(--friction));
+}
+
+.pedal[data-kind='brake'] .bar-fill {
+  background: linear-gradient(90deg, #b83a3a, var(--danger));
+}
+
+.pedal[data-kind='accelerator'] .bar-fill {
+  background: linear-gradient(90deg, #1f9d6f, var(--ok));
+}
+
+.friction-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(135deg, var(--friction-soft) 0 6px, transparent 6px 12px);
+  border-left: 1px dashed rgba(251, 146, 60, 0.6);
+  border-right: 1px dashed rgba(251, 146, 60, 0.6);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.launch-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 15%;
+  width: 10%;
+  background: var(--ok-soft);
+  border-left: 1px dashed rgba(52, 211, 153, 0.5);
+  border-right: 1px dashed rgba(52, 211, 153, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bite-marker {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--friction);
+  z-index: 2;
+}
+
+.pedal-scale {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  margin-top: 4px;
+}
+
+.bite-label {
+  position: absolute;
+  transform: translateX(-50%);
+  color: var(--friction);
+  letter-spacing: 0.04em;
+}
+
+.friction-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: var(--friction);
+  background: var(--friction-soft);
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+}
+
+.friction-badge.on {
+  opacity: 1;
+  transform: none;
+}
+
+.engagement {
+  display: grid;
+  grid-template-columns: auto 1fr 3.2em;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+}
+
+.bar-thin {
+  height: 6px;
+}
+
+.engagement .bar-fill {
+  background: #93a4bd;
+}
+
+.engagement .num {
+  text-align: right;
+}

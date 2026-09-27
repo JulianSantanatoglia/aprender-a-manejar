@@ -1,0 +1,61 @@
+.gearshift {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.gearshift svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+.gate line {
+  stroke: #273142;
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.gate-label {
+  fill: var(--dim);
+  font-size: 20px;
+  font-weight: 700;
+  dominant-baseline: middle;
+  transition: fill 0.15s;
+}
+
+.gate-label[data-reverse] {
+  fill: #7d5a5a;
+}
+
+.gate-label[data-active] {
+  fill: var(--accent);
+}
+
+.gate-n {
+  font-size: 14px;
+}
+
+.knob {
+  transition: transform 0.18s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.knob-outer {
+  fill: #1b2230;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 8px rgba(76, 194, 255, 0.35));
+}
+
+.knob-inner {
+  fill: var(--accent);
+}
+
+.gearshift-hint {
+  font-size: 0.78rem;
+}
+
+.gearshift-hint .ok {
+  color: var(--ok);
+}

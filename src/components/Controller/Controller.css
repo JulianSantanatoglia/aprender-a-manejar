@@ -1,0 +1,204 @@
+.controller-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.diag {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.diag-info {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+}
+
+.diag-info div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.diag-info strong {
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.ok-text {
+  color: var(--ok);
+}
+
+.diag-warning {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: 0.86rem;
+}
+
+.diag-analog-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+}
+
+.diag-bar {
+  height: 24px;
+}
+
+.diag-dots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.diag-dot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition:
+    background 0.08s,
+    border-color 0.08s;
+}
+
+.diag-dot[data-on] {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.diag-dot[data-on] .diag-dot-led {
+  color: var(--accent);
+}
+
+.diag-axes {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 4px 24px;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+.diag-sub {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-family: inherit;
+}
+
+.diag-raw summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.diag-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+.diag-btn {
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  color: var(--dim);
+}
+
+.diag-btn[data-on] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.diag-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 4px;
+}
+
+.diag-empty-title {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.calib {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calib-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.calib-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.calib-progress {
+  margin-top: 12px;
+}
+
+.calib-values {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 16px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.check-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calib-note {
+  margin-top: 12px;
+  font-size: 0.82rem;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .controller-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .diag-info {
+    grid-template-columns: 1fr;
+  }
+  .diag-axes {
+    grid-template-columns: repeat(2, auto);
+  }
+}

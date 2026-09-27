@@ -1,0 +1,172 @@
+.exercise-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 20px;
+  border-color: rgba(76, 194, 255, 0.35);
+}
+
+.exercise-panel[data-state='success'] {
+  border-color: rgba(52, 211, 153, 0.6);
+}
+
+.exercise-panel[data-state='fail'] {
+  border-color: rgba(248, 113, 113, 0.6);
+}
+
+.exercise-number {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.exercise-panel h2 {
+  font-size: 1.35rem;
+  margin: 2px 0 6px;
+}
+
+.exercise-goal {
+  font-weight: 600;
+}
+
+.exercise-steps-toggle summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+.exercise-steps {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.exercise-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.exercise-result {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.exercise-result.running {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.exercise-result.success {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.exercise-result.fail {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.free-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.exercise-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 190px;
+}
+
+.exercise-card[data-done] {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.done-badge {
+  color: var(--ok);
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 800px) {
+  .exercise-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Modo cabina: el ejercicio ocupa una sola línea; los pasos se despliegan encima */
+@media (min-width: 1100px) and (min-height: 620px) {
+  .app--drive .exercise-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 16px;
+  }
+
+  .app--drive .exercise-main {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    min-width: 0;
+  }
+
+  .app--drive .exercise-panel h2 {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .app--drive .exercise-goal {
+    font-size: 0.9rem;
+  }
+
+  .app--drive .exercise-steps-toggle summary {
+    margin: 0;
+  }
+
+  .app--drive .exercise-steps-toggle[open] .exercise-steps {
+    position: absolute;
+    z-index: 25;
+    top: calc(100% + 10px);
+    left: 0;
+    width: min(460px, 80vw);
+    margin: 0;
+    padding: 14px 16px 14px 34px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line-strong);
+    background: var(--panel-2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    color: var(--text);
+  }
+
+  .app--drive .exercise-side {
+    flex-direction: row;
+    align-items: center;
+    flex: none;
+  }
+
+  .app--drive .exercise-result {
+    padding: 6px 12px;
+    max-width: 380px;
+    font-size: 0.88rem;
+  }
+}

@@ -1,0 +1,26 @@
+.debug {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px 24px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.debug-title {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.1em;
+}
+
+.debug-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.debug-row span:last-child {
+  color: var(--text);
+}

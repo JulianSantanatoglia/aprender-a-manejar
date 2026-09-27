@@ -1,0 +1,387 @@
+.drive {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.drive-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  font-size: 0.85rem;
+}
+
+.mode-label {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.drive-bar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.no-gamepad {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px dashed var(--line-strong);
+  color: var(--muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dash {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-areas:
+    'road road'
+    'tacho assistant'
+    'speed pedals'
+    'shift shift'
+    'debug debug';
+  gap: 14px;
+}
+
+.area-road {
+  grid-area: road;
+  padding: 14px 16px 16px;
+}
+.area-road .panel-title {
+  margin-bottom: 10px;
+}
+.area-tacho {
+  grid-area: tacho;
+}
+.area-assistant {
+  grid-area: assistant;
+  display: flex;
+  flex-direction: column;
+}
+.area-assistant .assistant {
+  flex: 1;
+}
+.area-speed {
+  grid-area: speed;
+}
+.area-pedals {
+  grid-area: pedals;
+}
+.area-shift {
+  grid-area: shift;
+}
+.area-debug {
+  grid-area: debug;
+}
+
+.tacho-body {
+  min-height: 0;
+}
+
+.dash--noroad {
+  grid-template-areas:
+    'tacho assistant'
+    'speed pedals'
+    'shift shift'
+    'debug debug';
+}
+
+.speed-gear {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  min-height: 150px;
+}
+
+.speedo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speedo-value {
+  font-size: 5.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.speedo-unit {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.shift-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+}
+
+.legend-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.legend dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 16px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.legend dt {
+  flex: none;
+}
+
+.legend dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.warning-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 14px;
+  padding: 4px 16px;
+  min-width: 0;
+  border-radius: var(--radius);
+  background: rgba(127, 29, 29, 0.92);
+  border: 1px solid var(--danger);
+  box-shadow: 0 10px 40px rgba(248, 113, 113, 0.25);
+  pointer-events: none;
+  text-align: center;
+  animation: banner-in 0.18s ease-out;
+}
+
+.warning-banner strong {
+  font-size: 1.05rem;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+
+.warning-banner span {
+  font-size: 0.85rem;
+  color: #fde2e2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.pause-menu {
+  width: min(360px, 100%);
+  align-items: stretch;
+  text-align: center;
+}
+
+.pause-menu h2 {
+  letter-spacing: 0.1em;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.pause-menu .btn {
+  padding: 11px;
+  font-size: 1rem;
+}
+
+.pause-hint {
+  font-size: 0.78rem;
+  line-height: 2;
+}
+
+@media (max-width: 900px) {
+  .dash {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'road' 'tacho' 'speed' 'pedals' 'assistant' 'shift' 'debug';
+  }
+  .shift-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .speedo-value {
+    font-size: 4.2rem;
+  }
+  .gear-value {
+    font-size: 4.8rem;
+  }
+}
+
+/* ─── Modo cabina: todo en una pantalla, sin scroll (escritorio) ─────── */
+@media (min-width: 1100px) and (min-height: 620px) {
+  .app--drive main {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app--drive .drive {
+    flex: 1;
+    min-height: 0;
+    gap: 10px;
+  }
+
+  .drive-bar {
+    flex-wrap: nowrap;
+    min-height: 34px;
+  }
+
+  .dash {
+    flex: 1;
+    min-height: 0;
+    gap: 10px;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 0.95fr) minmax(0, 1fr);
+    grid-template-rows: minmax(120px, 0.7fr) minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-areas:
+      'road road road road'
+      'tacho speed shift assistant'
+      'tacho pedals shift assistant';
+  }
+
+  .dash--noroad {
+    grid-template-rows: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-areas:
+      'tacho speed shift assistant'
+      'tacho pedals shift assistant';
+  }
+
+  .dash > .panel {
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+  }
+
+  .dash .panel-title {
+    margin-bottom: 8px;
+  }
+
+  .area-road .road-canvas {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+  }
+
+  /* El tacómetro se ajusta al hueco disponible manteniendo su proporción */
+  .tacho-body {
+    flex: 1;
+    container-type: size;
+    display: grid;
+    place-items: center;
+  }
+
+  .tacho-body .tacho {
+    width: min(100cqw, calc((100cqh - 30px) * 1.066));
+  }
+
+  .area-speed .speed-gear {
+    flex: 1;
+    min-height: 0;
+    container-type: size;
+  }
+
+  .area-speed .speedo-value {
+    font-size: min(5.6rem, 52cqh);
+  }
+
+  .area-speed .gear-value {
+    font-size: min(6.5rem, 60cqh);
+  }
+
+  .area-pedals .pedals {
+    flex: 1;
+    min-height: 0;
+    justify-content: space-evenly;
+    gap: 6px;
+  }
+
+  .area-pedals .pedal-head {
+    margin-bottom: 3px;
+  }
+
+  .area-pedals .pedal-bar {
+    height: clamp(12px, 2.2vh, 22px);
+  }
+
+  .area-pedals .engagement {
+    margin-top: 4px;
+  }
+
+  .area-shift .shift-row {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .area-shift .gearshift {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .area-shift .gearshift svg {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+  }
+
+  .area-shift .legend-row {
+    font-size: 0.76rem;
+  }
+
+  .area-shift .legend dl {
+    gap: 4px 10px;
+  }
+
+  .area-assistant .assistant {
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .area-assistant .assistant-list {
+    min-height: 0;
+  }
+
+  /* Debug: panel flotante para no robar espacio */
+  .area-debug {
+    position: fixed;
+    z-index: 30;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-height: 45vh;
+    overflow: auto !important;
+    background: rgba(16, 20, 27, 0.96) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+}
